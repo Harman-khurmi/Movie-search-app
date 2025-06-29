@@ -1,0 +1,11 @@
+@import "tailwindcss";
+@plugin "flowbite-react/plugin/tailwindcss";
+@source "../.flowbite-react/class-list.json";
+
+.stroke-text {
+  /* -webkit-text-stroke: 1px #13b0fe; */
+  /* -webkit-text-stroke: 1px #8c84fe; */
+  -webkit-text-stroke: 3px #8d8d8d;
+   /* Adjust thickness and color as needed */
+  color: transparent; 
+}
