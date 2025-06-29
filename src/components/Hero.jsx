@@ -13,6 +13,7 @@ const Hero = () => {
     const [moviesList, setMoviesList] = useState([]);
     const [debouncedSearchText, setDebouncedSearchText] = useState('');
     const [popularMovies, setPopularMovies] = useState([]);
+    const [popularError, setPopularError] = useState('');
 
 
     const base_url = import.meta.env.VITE_TMDB_BASE_URL;
@@ -79,7 +80,7 @@ const Hero = () => {
                 setPopularMovies(popularMovies);
             }
             else {
-                setErrorMessage('No popular movies found.');
+                setPopularError('No popular movies found.');
             }
         }
         catch (error) {
@@ -134,7 +135,7 @@ const Hero = () => {
                                 ))}
                             </ul>
                         ) : (
-                            <p className='text-red-500'>{errorMessage || 'No popular movies found.'}</p>
+                            <p className='text-red-500'>{popularError || 'No popular movies found.'}</p>
                         )}
                     </div>
                 </div>

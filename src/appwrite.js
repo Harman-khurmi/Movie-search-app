@@ -8,7 +8,7 @@ const APPWRITE_ENDPOINT = import.meta.env.VITE_APPWRITE_ENDPOINT;
 //creating appwrite client
 const client = new Client()
     .setEndpoint(APPWRITE_ENDPOINT)
-    .setProject(PROJECT_ID);
+    .setProject(PROJECT_ID)
 
 //creating database instance
 const database = new Databases(client);
