@@ -76,15 +76,19 @@ const Hero = () => {
         try {
             const popularMovies = await getPopularMovies();
             if (popularMovies && popularMovies.length > 0) {
-
+                setLoading(false);
+                setPopularError('');
                 setPopularMovies(popularMovies);
             }
             else {
                 setPopularError('No popular movies found.');
+                setPopularMovies([]);
+                setLoading(false);
             }
         }
         catch (error) {
             console.error('Error fetching popular movies:', error);
+            setLoading(false);
         }
         finally {
             setLoading(false);
@@ -134,7 +138,11 @@ const Hero = () => {
                                     </li>
                                 ))}
                             </ul>
-                        ) : (
+                        ) :  Loading ? (
+                        <div className='flex items-center justify-center'>
+                            <Spinner />
+                        </div>
+                    ) :  (
                             <p className='text-red-500'>{popularError || 'No popular movies found.'}</p>
                         )}
                     </div>
